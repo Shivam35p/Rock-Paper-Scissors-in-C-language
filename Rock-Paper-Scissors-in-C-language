@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int player, computer, result;
+    srand(time(NULL));
+    
+    printf("Welcome to Rock-Paper-Scissors game.\n");
+    printf("Please choose your move:\n");
+    printf("1. Rock\n");
+    printf("2. Paper\n");
+    printf("3. Scissors\n");
+    scanf("%d", &player);
+    
+    computer = rand() % 3 + 1; // generates a random number between 1-3
+    
+    printf("You chose: ");
+    switch(player) {
+        case 1:
+            printf("Rock\n");
+            break;
+        case 2:
+            printf("Paper\n");
+            break;
+        case 3:
+            printf("Scissors\n");
+            break;
+        default:
+            printf("Invalid move\n");
+            return 0;
+    }
+    
+    printf("Computer chose: ");
+    switch(computer) {
+        case 1:
+            printf("Rock\n");
+            break;
+        case 2:
+            printf("Paper\n");
+            break;
+        case 3:
+            printf("Scissors\n");
+            break;
+    }
+    
+    // determine the winner
+    if(player == computer) {
+        printf("It's a tie!\n");
+    } else if ((player == 1 && computer == 3) ||
+               (player == 2 && computer == 1) ||
+               (player == 3 && computer == 2)) {
+        printf("You win!\n");
+    } else {
+        printf("Computer wins!\n");
+    }
+    
+    return 0;
+}
